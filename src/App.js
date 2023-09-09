@@ -44,7 +44,6 @@ export default function App() {
   }
 
   function handleSelection(friend) {
-    // setSelectedFriend(friend);
     setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
     setShowAddFriend(false);
   }
@@ -88,7 +87,7 @@ export default function App() {
   );
 }
 
-function FriendsList({ friends, onSelection, selectedFriend }) {
+function FriendsList({ friends, selectedFriend, onSelection }) {
   return (
     <ul>
       {friends.map((friend) => (
@@ -103,7 +102,7 @@ function FriendsList({ friends, onSelection, selectedFriend }) {
   );
 }
 
-function Friend({ friend, onSelection, selectedFriend }) {
+function Friend({ friend, selectedFriend, onSelection }) {
   const isSelected = selectedFriend?.id === friend.id;
 
   return (
@@ -169,7 +168,7 @@ function FormAddFriend({ onAddFriend }) {
         onChange={(e) => setImage(e.target.value)}
       />
 
-      <Button>Add</Button>
+      <Button>Adicionar</Button>
     </form>
   );
 }
@@ -221,7 +220,7 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
         <option value="friend">{selectedFriend.name}</option>
       </select>
 
-      <Button>Split bill</Button>
+      <Button>Dividir conta</Button>
     </form>
   );
 }
